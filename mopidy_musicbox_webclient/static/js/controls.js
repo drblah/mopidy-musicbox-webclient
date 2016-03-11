@@ -452,6 +452,12 @@ function playStreamUri (uri) {
     // value of name is based on the passing of an uri as a parameter or not
     var nwuri = uri || $('#streamuriinput').val().trim()
     var service = $('#selectstreamservice').val()
+
+    // append yt: if 
+    if (nwuri.match(/http[s]*:\/\/www.youtube.com.+/)) {
+        nwuri = "yt:" + nwuri
+    }
+
     if (!uri && service) {
         nwuri = service + ':' + nwuri
     }
